@@ -13,11 +13,11 @@ export const useTodoStore = defineStore(
   "todo",
   () => {
     const inputVal = ref("");
-    const todos = ref<Item[]>([]);
-    const todosNum = computed(() => todos.value.length);
+    const todos = reactive<Item[]>([]);
+    const todosNum = computed(() => todos.length);
 
     function addTodo() {
-      todos.value.push({
+      todos.push({
         id: generateId(),
         content: inputVal.value,
       });
@@ -25,8 +25,8 @@ export const useTodoStore = defineStore(
     }
 
     function remove(item: Item) {
-      const index = todos.value.indexOf(item);
-      todos.value.splice(index, 1);
+      const index = todos.indexOf(item);
+      todos.splice(index, 1);
     }
 
     return {
