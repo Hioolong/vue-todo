@@ -6,7 +6,7 @@ export type Item = {
   content: string;
 };
 
-let id = 1;
+let id = 0;
 const generateId = () => id++;
 
 export const useTodoStore = defineStore(
