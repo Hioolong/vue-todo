@@ -1,8 +1,6 @@
 <script setup lang="ts">
 import { RouterLink, RouterView } from "vue-router";
-import HelloWorld from "./components/HelloWorld.vue";
-import { useTodoStore } from "./stores/useTodoStore";
-const todoStore = useTodoStore();
+import HelloWorld from "@/components/HelloWorld.vue";
 </script>
 
 <template>
@@ -17,11 +15,6 @@ const todoStore = useTodoStore();
 
     <div class="wrapper">
       <HelloWorld msg="You did it!" />
-      <ul>
-        <li v-for="item in todoStore.todos" :key="item.id">
-          {{ item.content }}
-        </li>
-      </ul>
       <nav>
         <RouterLink to="/">Home</RouterLink>
         <RouterLink to="/about">About</RouterLink>
